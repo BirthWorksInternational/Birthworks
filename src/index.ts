@@ -28,7 +28,8 @@ const main = async () => {
 
   app.set('socketio', io);
   app.use(expressStatusMonitor({ websocket: io }));
-
+  
+  await sync();
   setInterval(async () => {
     await sync();
   }, 1000 * 60 * 60 * 12);
